@@ -1,0 +1,21 @@
+[package]
+authors = ["Sebastian Messmer <messmer@cryfs.org>"]
+edition = "2021"
+name = "async-drop-guard"
+version = "0.0.1"
+readme = "README.md"
+documentation = "https://docs.rs/async-drop-guard"
+homepage = "https://github.com/smessmer/async-drop-guard"
+repository = "https://github.com/smessmer/async-drop-guard"
+license = "MIT OR Apache-2.0"
+keywords = ["concurrency", "async", "drop"]
+categories = ["asynchronous", "concurrency", "memory-management", "rust-patterns"]
+description = "This library offers hash map and cache data structures where individual entries can be locked"
+
+[dependencies]
+async-trait = "^0.1.56"
+log = "^0.4.17"
+futures = "^0.3.21"
+
+[dev-dependencies]
+tokio = {version = "^1.20.0", features = ["rt-multi-thread", "macros"]}
