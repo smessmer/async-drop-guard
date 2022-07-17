@@ -2,7 +2,7 @@
 authors = ["Sebastian Messmer <messmer@cryfs.org>"]
 edition = "2021"
 name = "async-drop-guard"
-version = "0.0.1"
+version = "0.0.2"
 readme = "README.md"
 documentation = "https://docs.rs/async-drop-guard"
 homepage = "https://github.com/smessmer/async-drop-guard"
