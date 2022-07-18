@@ -67,6 +67,7 @@ impl<T: Debug> Drop for AsyncDropGuard<T> {
                     // We're already panicking, double panic wouldn't show a good error message anyways. Let's just log instead.
                     // A common scenario for this to happen is a failing test case.
                     log::error!("Forgot to call async_drop on {:?}", v);
+                    eprintln!("Forgot to call async_drop on {:?}", v);
                 } else {
                     panic!("Forgot to call async_drop on {:?}", v);
                 }

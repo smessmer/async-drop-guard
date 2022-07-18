@@ -38,6 +38,7 @@ impl<T: Debug + AsyncDrop> Drop for SyncDrop<T> {
                     futures::executor::block_on(v.async_drop()).unwrap()
                 }) {
                     log::error!("Double panic.\nInner panic: {:?}", panic);
+                    eprintln!("Double panic.\nInner panic: {:?}", panic);
                 }
             } else {
                 futures::executor::block_on(v.async_drop()).unwrap()
