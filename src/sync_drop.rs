@@ -1,6 +1,6 @@
 use std::fmt::Debug;
 use std::ops::{Deref, DerefMut};
-use std::panic::{AssertUnwindSafe, UnwindSafe};
+use std::panic::AssertUnwindSafe;
 
 use super::{AsyncDrop, AsyncDropGuard};
 
@@ -46,14 +46,14 @@ impl<T: Debug + AsyncDrop> Drop for SyncDrop<T> {
     }
 }
 
-impl<T: Debug + AsyncDrop + UnwindSafe> Deref for SyncDrop<T> {
+impl<T: Debug + AsyncDrop> Deref for SyncDrop<T> {
     type Target = T;
     fn deref(&self) -> &T {
         self.0.as_ref().expect("Already dropped")
     }
 }
 
-impl<T: Debug + AsyncDrop + UnwindSafe> DerefMut for SyncDrop<T> {
+impl<T: Debug + AsyncDrop> DerefMut for SyncDrop<T> {
     fn deref_mut(&mut self) -> &mut T {
         self.0.as_mut().expect("Already dropped")
     }
